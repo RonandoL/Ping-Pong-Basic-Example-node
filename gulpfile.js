@@ -1,0 +1,11 @@
+var gulp = require('gulp');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+
+          // jsBrowserify is arbitrary pick
+gulp.task('jsBrowserify', function() {
+  return browserify({ entries: ['./js/browser.js'] })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'));
+});
